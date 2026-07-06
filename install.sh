@@ -92,6 +92,7 @@ install \
 # base-devel — базові інструменти збірки
 # wget       — завантажувач файлів
 # curl       — HTTP-клієнт
+# code       — VS Code
 ########################################
 echo -e "${GREEN}========================================${NC}"
 echo -e "${GREEN}    Installing Development tools${NC}"
@@ -100,7 +101,8 @@ install \
     git \
     base-devel \
     wget \
-    curl
+    curl \
+    code
 
 ########################################
 # Shell
