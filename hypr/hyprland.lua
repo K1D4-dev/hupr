@@ -258,12 +258,6 @@ hl.gesture({
     action = "workspace"
 })
 
--- Example per-device config
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
-hl.device({
-    name        = "epic-mouse-v1",
-    sensitivity = -0.5,
-})
 
 
 ---------------------
@@ -286,12 +280,12 @@ hl.bind("SHIFT + Print",  hl.dsp.exec_cmd("hyprshot -m window"))
 hl.bind("CTRL + Print",   hl.dsp.exec_cmd("hyprshot -m region"))
 
 -- Історія буфера обміну (перегляд через walker), запис уже йде через autostart
-hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("cliphist list | walker --dmenu | cliphist decode | wl-copy"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | walker --dmenu | cliphist decode | wl-copy"))
 
 -- Блокування екрана
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
