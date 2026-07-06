@@ -42,6 +42,9 @@ local menu        = "walker"
 local browser     = "brave"
 
 
+
+
+
 -------------------
 ---- AUTOSTART ----
 -------------------
@@ -51,11 +54,14 @@ local browser     = "brave"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
--- hl.on("hyprland.start", function () 
---   hl.exec_cmd(terminal)
---   hl.exec_cmd("nm-applet")
---   hl.exec_cmd("waybar & hyprpaper & firefox")
--- end)
+ hl.on("hyprland.start", function () 
+   hl.exec_cmd(hyprpolkitagent)
+   hl.exec_cmd("nm-applet --indicator")
+   hl.exec_cmd("blueman-applet")
+   hl.exec_cmd("hypridle")
+   hl.exec_cmd("waybar & hyprpaper & maco")
+   hl.exec_cmd("wl-paste --watch cliphist store")
+ end)
 
 
 -------------------------------
@@ -94,7 +100,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 4,
+        gaps_in  = 2,
         gaps_out = 4,
 
         border_size = 1,
@@ -105,7 +111,6 @@ hl.config({
         },
 
         resize_on_border = true,
-        extend_border_grab_area = 15,
         allow_tearing = false,
 
         layout = "dwindle",
@@ -234,6 +239,7 @@ hl.config({
 
         touchpad = {
             natural_scroll = true,
+			tap_to_click = true
         },
     },
 })
@@ -266,6 +272,10 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E",      hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + Q",      hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + B",      hl.dsp.exec_cmd(browser))
+
+hl.bind("Print",      hl.dsp.exec_cmd(hyprshot -m output))
+hl.bind("Print + W",      hl.dsp.exec_cmd(hyprshot -m window))
+hl.bind("Print + R",      hl.dsp.exec_cmd(hyprshot -m region))
 
 
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
