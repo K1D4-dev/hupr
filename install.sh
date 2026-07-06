@@ -102,6 +102,46 @@ install \
     curl
 
 ########################################
+# Shell
+# zsh                        — оболонка командного рядка
+# zsh-autosuggestions        — підказки команд на основі історії
+# zsh-syntax-highlighting    — підсвітка синтаксису команд
+# zsh-completions            — розширений набір автодоповнень
+# zsh-history-substring-search — пошук по історії підрядком через стрілки
+########################################
+
+echo -e "${GREEN}==> Installing Zsh${NC}"
+
+install \
+    zsh \
+    zsh-autosuggestions \
+    zsh-syntax-highlighting \
+    zsh-completions \
+    zsh-history-substring-search
+
+echo -e "${GREEN}==> Configuring Zsh${NC}"
+
+if [ ! -f "$HOME/.zshrc" ]; then
+    touch "$HOME/.zshrc"
+fi
+
+cat >> "$HOME/.zshrc" << 'EOF'
+
+# --- Автодоповнення та підказки ---
+fpath+=(/usr/share/zsh/site-functions)
+autoload -Uz compinit && compinit
+
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+EOF
+
+sudo chsh -s /usr/bin/zsh "$USER"
+
+########################################
 # yay — AUR-хелпер
 ########################################
 
