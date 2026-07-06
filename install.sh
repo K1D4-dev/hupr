@@ -308,7 +308,7 @@ sudo systemctl enable ufw
 ########################################
 echo -e "${GREEN}==> Configuring${NC}"
 
-cp "$SCRIPT_DIR/hypr/hyprland.conf"  ~/.config/hypr/hyprland.conf
+cp "$SCRIPT_DIR/hypr/hyprland.conf"  ~/.config/hypr/hyprland.lua
 
 echo ""
 echo -e "${GREEN}========================================${NC}"
