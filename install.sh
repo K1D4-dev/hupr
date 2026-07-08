@@ -307,7 +307,7 @@ sudo systemctl enable ufw
 echo -e "${GREEN}========================================${NC}"
 echo -e "${GREEN}    Instaling Game services${NC}"
 echo -e "${GREEN}========================================${NC}"
-sudo cp ~/hypr/etc/pacman.conf /etc/pacman.conf
+sudo cp /home/vshliakhovyi/hypr/etc/pacman.conf /etc/pacman.conf
 sudo pacman -Syu --noconfirm
 sudo pacman -S steam
 
@@ -316,8 +316,10 @@ echo -e "${GREEN}========================================${NC}"
 echo -e "${GREEN}    Configuring${NC}"
 echo -e "${GREEN}========================================${NC}"
 
+sudo mkdir -p ~/.config/waybar ~/.config/hypr
 
-
+sudo cp -r ~/hypr/waybar/ ~/.config/waybar/
+sudo cp -r ~/hypr/hypr/ ~/.config/hypr/
 
 
 
