@@ -318,8 +318,8 @@ echo -e "${GREEN}========================================${NC}"
 
 sudo mkdir -p ~/.config/waybar ~/.config/hypr
 
-sudo cp -r ~/hypr/waybar/ ~/.config/waybar/
-sudo cp -r ~/hypr/hypr/ ~/.config/hypr/
+sudo cp -r ~/hypr/waybar/ ~/.config/
+sudo cp -r ~/hypr/hypr/ ~/.config/
 
 
 
