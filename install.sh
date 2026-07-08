@@ -324,7 +324,6 @@ echo -e "${GREEN}========================================${NC}"
 
 
 
-
 echo ""
 echo -e "${GREEN}========================================${NC}"
 echo -e "${GREEN} Installation completed successfully!${NC}"
