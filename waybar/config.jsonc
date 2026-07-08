@@ -1,0 +1,116 @@
+// ~/.config/waybar/config.jsonc
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 4,
+    "margin-top": 4,
+    "margin-left": 6,
+    "margin-right": 6,
+
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "network",
+        "cpu",
+        "memory",
+        "battery",
+        "custom/power"
+    ],
+
+    // ---- ЛІВА ЧАСТИНА ----
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "format-icons": {
+            "active": "\uf111",   //  filled circle
+            "default": "\uf10c",  //  empty circle
+            "urgent": "\uf06a"    //  warning
+        },
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 40,
+        "separate-outputs": true,
+        "on-click": "hyprctl dispatch fullscreen 1",
+        "on-click-right": "hyprctl dispatch togglefloating"
+    },
+
+    // ---- ЦЕНТР ----
+
+    "clock": {
+        "format": "\uf017  {:%H:%M}",   //  clock icon
+        "format-alt": "\uf133  {:%d.%m.%Y}", //  calendar icon
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-click": "shift_format",
+        "on-click-right": "gnome-calendar"
+    },
+
+    // ---- ПРАВА ЧАСТИНА ----
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "\uf6a9  muted",
+        "format-icons": {
+            "default": ["\uf026", "\uf027", "\uf028"] // низька/середня/висока гучність
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    },
+
+    "network": {
+        "format-wifi": "\uf1eb  {signalStrength}%",
+        "format-ethernet": "\uf796  {ifname}",
+        "format-disconnected": "\uf127  disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "kitty -e nmtui",
+        "on-click-right": "nm-connection-editor"
+    },
+
+    "cpu": {
+        "format": "\uf2db  {usage}%",
+        "interval": 5,
+        "on-click": "kitty -e btop"
+    },
+
+    "memory": {
+        "format": "\uf538  {}%",
+        "interval": 5,
+        "on-click": "kitty -e btop"
+    },
+
+    "battery": {
+        "format": "{icon}  {capacity}%",
+        "format-charging": "\uf0e7  {capacity}%",
+        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "on-click": "powerprofilesctl set balanced",
+        "on-click-right": "powerprofilesctl set power-saver"
+    },
+
+    "custom/power": {
+        "format": "\uf011",   //  power icon
+        "tooltip": false,
+        "on-click": "wlogout",
+        "on-click-right": "hyprlock"
+    }
+}

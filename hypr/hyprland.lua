@@ -37,7 +37,7 @@ hl.monitor({
 -- Set programs that you use
 local terminal    = "kitty"
 local fileManager = "dolphin"
-local menu        = "walker"
+local menu        = "hyprlauncher"
 local browser     = "brave"
 
 
@@ -60,8 +60,7 @@ local browser     = "brave"
    hl.exec_cmd("hypridle")
    hl.exec_cmd("waybar")
    hl.exec_cmd("hyprpaper")
-   hl.exec_cmd("mako")
-   hl.exec_cmd("elephant")
+   hl.exec_cmd("hyprlauncher")
    hl.exec_cmd("wl-paste --watch cliphist store")
  end)
 
@@ -108,8 +107,9 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 2,
-        gaps_out = 4,
+        gaps_in  = 4,
+        gaps_out = 4
+    ,
 
         border_size = 1,
 
@@ -132,7 +132,7 @@ hl.config({
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
-        inactive_opacity = 0.9,
+        inactive_opacity = 1.0,
 
         shadow = {
             enabled      = false,

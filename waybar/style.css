@@ -1,0 +1,137 @@
+/* ~/.config/waybar/style.css
+ *
+ * Монохромний чорно-білий стиль, узгоджений з hyprtoolkit.conf:
+ * background 0d0d0d, text dcdcdc/ffffff, rounding 8px.
+ */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #0d0d0d;
+    color: #dcdcdc;
+    border-radius: 8px;
+    border: 1px solid #2b2b2b;
+}
+
+/* ---- Загальні модулі ---- */
+
+#workspaces,
+#window,
+#clock,
+#tray,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#battery,
+#custom-power {
+    background: #161616;
+    color: #dcdcdc;
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 6px;
+    border: 1px solid #212121;
+}
+
+/* ---- Workspaces ---- */
+
+#workspaces button {
+    color: #6e6e6e;
+    padding: 0 6px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+    background: #212121;
+}
+
+#workspaces button.urgent {
+    color: #ffffff;
+    background: #3a3a3a;
+}
+
+#workspaces button:hover {
+    color: #ffffff;
+    background: #1e1e1e;
+}
+
+/* ---- Активне вікно ---- */
+
+#window {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* ---- Годинник ---- */
+
+#clock {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* ---- Трей ---- */
+
+#tray {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* ---- Стан-модулі: попередження ---- */
+
+#battery.warning {
+    color: #cfcfcf;
+}
+
+#battery.critical {
+    color: #ffffff;
+    background: #3a1f1f;
+    border-color: #5a2a2a;
+}
+
+#network.disconnected {
+    color: #6e6e6e;
+}
+
+/* ---- Кнопка живлення ---- */
+
+#custom-power {
+    color: #ffffff;
+}
+
+#custom-power:hover {
+    background: #2b2b2b;
+}
+
+/* ---- Наведення на будь-який модуль справа ---- */
+
+#pulseaudio:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#battery:hover {
+    background: #1e1e1e;
+}
+
+tooltip {
+    background: #0d0d0d;
+    border: 1px solid #2b2b2b;
+    border-radius: 6px;
+}
+
+tooltip label {
+    color: #dcdcdc;
+}
