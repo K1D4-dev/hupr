@@ -183,8 +183,8 @@ echo -e "${GREEN}    Installing Graphics drivers${NC}"
 echo -e "${GREEN}========================================${NC}"
 install \
     mesa \
-    vulkan-radeon \
-    lib32-vulkan-radeon
+    vulkan-radeon 
+    #lib32-vulkan-radeon
 
 
 ########################################
